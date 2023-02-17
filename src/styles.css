@@ -1,0 +1,39 @@
+.content {
+  position: relative;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+  background-color: aqua;
+}
+
+h2 {
+  color: blueviolet;
+  font-family: serif;
+}
+
+h3 {
+  color: darkmagenta;
+}
+
+.search {
+  display: block;
+  margin: auto;
+}
+.w-fit-content {
+  width: fit-content;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.col {
+  padding: 10px;
+}
+
+.description {
+  font-weight: normal;
+}

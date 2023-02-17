@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/61d5138178.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <h1>Weather</h1>
+        <form class="search" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter city here"
+            autofocus="on"
+            autocomplete="off"
+            id="city"
+          /><button class="btn btn-primary" type="submit" value="Submit">
+            Submit
+          </button>
+        </form>
+        <h2 id="city">Hamilton, ON</h2>
+        <h3 id="Day">Day, 00:00</h3>
+        <h4 class="number">4</h4>
+        <a href="#" id="celsius-link">°C</a> |
+        <a href="#" id="fahrenheit-link">°F</a>
+        <img
+          src="images/cloudy.png"
+          class="weather"
+          width="100px"
+          height="100px"
+        />
+        <div class="card w-fit-content m-auto">
+          <div class="card-body">Cloudy with a chance of showers</div>
+          <br />
+        </div>
+        <h3 id="5-day"><u>5-day Forecast</u></h3>
+        <table class="table table-sm table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">
+                Monday<br /><img
+                  src="images/fog.png"
+                  class="weather"
+                  width="100px"
+                  height="100px"
+                />
+              </th>
+              <th scope="col">
+                Tuesday<br /><img
+                  src="images/thunderstorm.png"
+                  class="weather"
+                  width="100px"
+                  height="100px"
+                />
+              </th>
+              <th scope="col">
+                Wednesday<br /><img
+                  src="images/rain.png"
+                  height="100px"
+                  width="100px"
+                />
+              </th>
+              <th scope="col">
+                Thursday<br /><img
+                  src="images/sunny.png"
+                  height="100px"
+                  width="100px"
+                />
+              </th>
+              <th scope="col">
+                Friday<br /><img
+                  src="images/snow.png"
+                  height="100px"
+                  width="100px"
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row" class="description">Foggy</th>
+              <td class="description">Thunderstorm</td>
+              <td class="description">Rain</td>
+              <td class="description">Sunny</td>
+              <td class="description">Snow</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+          crossorigin="anonymous"
+        ></script>
+      </div>
+    </div>
+
+    <footer>Weather icons by titusurya on Freepik</footer>
+    <script src="src/index.js"></script>
+  </body>
+</html>

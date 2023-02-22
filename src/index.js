@@ -42,7 +42,7 @@ function search(event) {
   let cityInput = document.querySelector("#city");
   cityElement.innerHTML = cityInput.value;
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = Math.round(response.data.wind.wind.speed);
 }
 
 function convertToFahrenheit(event) {
@@ -97,18 +97,16 @@ searchBox.addEventListener("submit", searchWeather);
 // Weather API call
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
   let dateChange = document.querySelector("#Day");
   dateChange.innerHTML = `${formatDate()}`;
   let degrees = document.querySelector(".number");
   degrees.innerHTML = `${temperature}`;
+ let weatherElement = document.querySelector(#weather);
+  weatherElement.setAttribute("src", "http://openweathermap.org/img/wn/${response.data.weather.[0].icon}@2x.png")
 }
 
 function searchCity(city) {
-  console.log(city);
-
   let apiKey = `62231151ce343c4d68652e1617efc22f`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);

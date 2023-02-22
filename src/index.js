@@ -41,6 +41,7 @@ function search(event) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city");
   cityElement.innerHTML = cityInput.value;
+  let windElement = document.querySelector("#wind");
 }
 
 function convertToFahrenheit(event) {

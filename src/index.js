@@ -1,8 +1,8 @@
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "c8735bb7e8e2f8d8a38c7501f3cd47d3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "o2ae200bf1666aet3874ee9af35b0d33";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -72,8 +72,8 @@ function searchLocation(position) {
   let longitude = position.coords.longitude;
   let coordSearch = document.querySelector("h2");
   coordSearch.innerHTML = `Currently based on your ${latitude} and your ${longitude}`;
-  let apiKey = `62231151ce343c4d68652e1617efc22f`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = `o2ae200bf1666aet3874ee9af35b0d33`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -103,12 +103,12 @@ function showTemperature(response) {
   let degrees = document.querySelector(".number");
   degrees.innerHTML = `${temperature}`;
  let weatherElement = document.querySelector(#weather);
-  weatherElement.setAttribute("src", "http://openweathermap.org/img/wn/${response.data.weather.[0].icon}@2x.png")
+  weatherElement.setAttribute("src", "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png")
 }
 
 function searchCity(city) {
-  let apiKey = `62231151ce343c4d68652e1617efc22f`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = `o2ae200bf1666aet3874ee9af35b0d33`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 

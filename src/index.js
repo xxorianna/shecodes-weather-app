@@ -45,14 +45,6 @@ function search(event) {
   windElement.innerHTML = Math.round(response.data.wind.wind.speed);
 }
 
-function inputCity(event) {
-  event.preventDefault();
-  let input = document.querySelector("#city");
-  console.log(input.value);
-}
-let form = document.querySelector("form");
-form.addEventListener("submit", inputCity);
-
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -69,10 +61,6 @@ function convertToCelsius(event) {
 let dateElement = document.querySelector("#Day");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
-
-// Feature #2
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchWeather);
 
 // Current weather update
 function searchLocation(position) {
@@ -99,24 +87,27 @@ function searchWeather(event) {
   let titleChange = document.querySelector("h2");
   titleChange.innerHTML = ` Currently in ${cityInput.value}`;
 }
-let searchBox = document.querySelector("#city");
+let searchBox = document.querySelector("#search-form");
 searchBox.addEventListener("submit", searchWeather);
 
 // Weather API call
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.temperature.current);
   let dateChange = document.querySelector("#Day");
   dateChange.innerHTML = `${formatDate()}`;
   let degrees = document.querySelector(".number");
   degrees.innerHTML = `${temperature}`;
- let weatherElement = document.querySelector(#weather);
-  weatherElement.setAttribute("src", "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png")
+  let weatherElement = document.querySelector("#weather");
+  weatherElement.setAttribute(
+    "src",
+    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+  );
 }
 
 function searchCity(city) {
   let apiKey = `o2ae200bf1666aet3874ee9af35b0d33`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=o2ae200bf1666aet3874ee9af35b0d33&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 

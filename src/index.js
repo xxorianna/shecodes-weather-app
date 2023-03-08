@@ -103,6 +103,8 @@ function showTemperature(response) {
     "src",
     "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
   );
+  let descriptionElement = document.querySelector(".card-body");
+  descriptionElement.innerHTML = response.data.condition.description;
 }
 
 function searchCity(city) {

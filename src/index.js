@@ -101,7 +101,7 @@ function showTemperature(response) {
   let weatherElement = document.querySelector("#weather");
   weatherElement.setAttribute(
     "src",
-    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png"
   );
   let descriptionElement = document.querySelector(".card-body");
   descriptionElement.innerHTML = response.data.condition.description;

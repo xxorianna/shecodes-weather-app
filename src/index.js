@@ -103,6 +103,9 @@ function showTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  weatherElement.setAttribute{
+    "alt", response.data.condition.description};
+  }
   let descriptionElement = document.querySelector(".card-body");
   descriptionElement.innerHTML = response.data.condition.description;
 }

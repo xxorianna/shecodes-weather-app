@@ -1,5 +1,3 @@
-navigator.geolocation.getCurrentPosition(showPosition);
-
 let now = new Date();
 
 function formatDate() {
@@ -28,6 +26,8 @@ function formatDate() {
   return `${day} ${hour}:${minutes}`;
 }
 
+celsiusTemperature = Math.round(response.data.temperature.current);
+
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
@@ -39,14 +39,13 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector(".number");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let celsiusTemperature = (32°F − 32)*5/9;
   let temperatureElement = document.querySelector(".number");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -58,7 +57,7 @@ dateElement.innerHTML = formatDate(currentTime);
 
 function getCurrentPosition(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
+  navigator.geolocation.getCurrentPosition(searchCity);
 }
 
 // Search Weather update
@@ -72,8 +71,6 @@ function searchWeather(event) {
 }
 let searchBox = document.querySelector("#search-form");
 searchBox.addEventListener("submit", searchWeather);
-
-celsiusTemperature = Math.round(response.data.temperature.current)
 
 // Weather API call
 

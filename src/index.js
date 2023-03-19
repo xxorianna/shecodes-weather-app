@@ -47,14 +47,13 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let convertToFahrenheit = ()
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+  let temperatureElement = document.querySelector(".number");
+  temperatureElement.innerHTML = 39;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+  let temperatureElement = document.querySelector(".number");
   temperatureElement.innerHTML = 4;
 }
 
@@ -104,9 +103,8 @@ function showTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  weatherElement.setAttribute{
-    "alt", response.data.condition.description};
-  }
+  weatherElement.setAttribute("alt", response.data.condition.description);
+
   let descriptionElement = document.querySelector(".card-body");
   descriptionElement.innerHTML = response.data.condition.description;
 }

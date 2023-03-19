@@ -1,11 +1,3 @@
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "o2ae200bf1666aet3874ee9af35b0d33";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
 navigator.geolocation.getCurrentPosition(showPosition);
 
 let now = new Date();
@@ -23,7 +15,7 @@ function formatDate() {
 
   let day = days[now.getDay()];
 
-  let hour = now.getHours();
+  let hour = now.getUTCHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
@@ -47,7 +39,7 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (0°C * 9/5) + 32
+  let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32
   let temperatureElement = document.querySelector(".number");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
@@ -63,17 +55,6 @@ function convertToCelsius(event) {
 let dateElement = document.querySelector("#Day");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
-
-// Current weather update
-function searchLocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let coordSearch = document.querySelector("h2");
-  coordSearch.innerHTML = `Currently based on your ${latitude} and your ${longitude}`;
-  let apiKey = `o2ae200bf1666aet3874ee9af35b0d33`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33`;
-  axios.get(apiUrl).then(showTemperature);
-}
 
 function getCurrentPosition(event) {
   event.preventDefault();
@@ -91,6 +72,8 @@ function searchWeather(event) {
 }
 let searchBox = document.querySelector("#search-form");
 searchBox.addEventListener("submit", searchWeather);
+
+celsiusTemperature = Math.round(response.data.temperature.current)
 
 // Weather API call
 

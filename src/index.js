@@ -47,14 +47,16 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
+  let fahrenheitTemperature = (0°C * 9/5) + 32
   let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = 39;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
+  let celsiusTemperature = (32°F − 32)*5/9;
   let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = 4;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 // Feature #1

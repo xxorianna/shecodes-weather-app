@@ -40,14 +40,14 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = 39;
+  let fahrenheitElement = document.querySelector(".number");
+  fahrenheitElement.innerHTML = ;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = 4;
+  let celsiusElement = document.querySelector(".number");
+  celsiusElement.innerHTML = ;
 }
 
 // Feature #1

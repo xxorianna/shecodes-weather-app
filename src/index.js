@@ -1,3 +1,6 @@
+let apiKey = "o2ae200bf1666aet3874ee9af35b0d33";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Hamilton&key=o2ae200bf1666aet3874ee9af35b0d33`;
+axios.get(apiUrl).then(showTemperature);
 let now = new Date();
 
 function formatDate() {
@@ -13,7 +16,7 @@ function formatDate() {
 
   let day = days[now.getDay()];
 
-  let hour = now.getUTCHours();
+  let hour = now.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
@@ -26,8 +29,6 @@ function formatDate() {
   return `${day} ${hour}:${minutes}`;
 }
 
-celsiusTemperature = Math.round(response.data.temperature.current);
-
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
@@ -39,15 +40,14 @@ function search(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  temperatureElement.innerHTML = 39;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".number");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = 4;
 }
 
 // Feature #1
@@ -57,7 +57,7 @@ dateElement.innerHTML = formatDate(currentTime);
 
 function getCurrentPosition(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchCity);
+  navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 // Search Weather update

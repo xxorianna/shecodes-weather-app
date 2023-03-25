@@ -97,7 +97,6 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-// Bonus Feature
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 

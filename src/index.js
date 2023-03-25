@@ -41,13 +41,13 @@ function search(event) {
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitElement = document.querySelector(".number");
-  fahrenheitElement.innerHTML = ;
+  fahrenheitElement.innerHTML = `${temperature}` * 1.8 + 32;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let celsiusElement = document.querySelector(".number");
-  celsiusElement.innerHTML = ;
+  celsius.innerHTML = `${temperature}`;
 }
 
 // Feature #1

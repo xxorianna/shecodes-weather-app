@@ -34,8 +34,6 @@ function search(event) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city");
   cityElement.innerHTML = cityInput.value;
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function convertToFahrenheit(event) {
@@ -47,7 +45,7 @@ function convertToFahrenheit(event) {
 function convertToCelsius(event) {
   event.preventDefault();
   let celsiusElement = document.querySelector(".number");
-  celsius.innerHTML = `${temperature}`;
+  celsiusElement.innerHTML = `${temperature}`;
 }
 
 // Feature #1
@@ -75,7 +73,7 @@ searchBox.addEventListener("submit", searchWeather);
 // Weather API call
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.temperature.current);
+  temperature = Math.round(response.data.temperature.current);
   let dateChange = document.querySelector("#Day");
   dateChange.innerHTML = `${formatDate()}`;
   let degrees = document.querySelector(".number");
@@ -89,6 +87,9 @@ function showTemperature(response) {
 
   let descriptionElement = document.querySelector(".card-body");
   descriptionElement.innerHTML = response.data.condition.description;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchCity(city) {

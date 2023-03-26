@@ -10,13 +10,13 @@ h1 {
   text-transform: capitalize;
 }
 
-h2 {
+.city {
   color: blueviolet;
   font-family: serif;
   text-transform: capitalize;
 }
 
-h3 {
+.Day {
   color: darkmagenta;
   text-transform: capitalize;
 }

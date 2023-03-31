@@ -29,7 +29,7 @@ function formatDate() {
   return `${day} ${hour}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -50,6 +50,12 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast() {
+  let apiKey = "o2ae200bf1666aet3874ee9af35b0d33";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metrics`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function search(event) {
@@ -120,8 +126,6 @@ function searchCity(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=o2ae200bf1666aet3874ee9af35b0d33&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
-
-displayForecast();
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);

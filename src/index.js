@@ -30,23 +30,29 @@ function formatDate() {
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
-  let days = ["Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-        <div class="col">
-          ${day}
-          <br />
-          <img src="" id="weather" alt="" width="100px" height="100px" />
-          <br />
-          <span class="forecast-temp">12</span>°
-        </div>
-      </div>
-  `;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+                <div class="col">
+                  <div class="weather-forecast-day">${formatDay(
+                    forecastDay.time
+                  )}</div>
+                  <img
+                    src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                      forecastDay.condition.icon
+                    }.png"
+                    alt="weather icon"
+                    id="forecast-icon"
+                    width="40" />
+                </div>
+              
+            `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;

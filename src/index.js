@@ -39,9 +39,7 @@ function displayForecast(response) {
         forecastHTML +
         `
                 <div class="col">
-                  <div class="weather-forecast-day">${formatDay(
-                    forecastDay.time
-                  )}</div>
+                  <div class="forecast">${formatDate(forecastDay.time)}</div>
                   <img
                     src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                       forecastDay.condition.icon

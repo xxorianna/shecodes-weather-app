@@ -56,7 +56,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getForecast() {
+function getForecast(city) {
   let apiKey = "o2ae200bf1666aet3874ee9af35b0d33";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metrics`;
   axios.get(apiUrl).then(displayForecast);
@@ -123,6 +123,8 @@ function showTemperature(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {

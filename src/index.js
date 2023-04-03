@@ -29,6 +29,14 @@ function formatDate() {
   return `${day} ${hour}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -39,14 +47,15 @@ function displayForecast(response) {
         forecastHTML +
         `
                 <div class="col">
-                  <div class="forecast">${formatDate(forecastDay.time)}</div>
+                  <div class="forecast">${formatDay(forecastDay.time)}</div>
                   <img
                     src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                       forecastDay.condition.icon
                     }.png"
                     alt="weather icon"
                     id="forecast-icon"
-                    width="40" />
+                    width="80"
+                    height="70" />
                 </div>
               
             `;
